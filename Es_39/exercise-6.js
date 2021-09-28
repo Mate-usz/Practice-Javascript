@@ -18,7 +18,22 @@ class Circle {
 }
 
 class AreaCalculator {
-  // ...
+  // Si può risolvere anche con lo switch
+  static calculate(shape)
+  {
+    if(shape instanceof Square){
+      return shape.side * shape.side;
+    }
+    else if(shape instanceof Circle){
+      return shape.radius * shape.radius * Math.PI;
+    }
+    else if(shape instanceof Rectangle){
+      return shape.width * shape.height;
+    }
+    else{
+      console.log("Non posso calcolare questa figura.");
+    }
+  }
 }
 
 const square = new Square(4);
