@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="container">
+      <button type="button" id="fetch-post">
+        Fetch Post from LocalStorage
+      </button>
+
+      <h2>Post: <span id="post-title"></span></h2>
+    </div>
+  </body>
+</html>
+
+<script>
+  // code here
+  // NOTA: Non è scritto nella traccia ma immagino che debba recuperare il post
+  // dopo il click sul pulsante
+  // Altra nota: non richiesto ma salvo il contenuto su una variabile, così da 
+  // poter usare 'post' per altri scopi, se ce ne dovessero essere.
+  let post;
+
+  let btn = document.querySelector('#fetch-post');
+  btn.addEventListener('click', () => {
+    let response = localStorage.getItem('post');
+    post = JSON.parse(response);
+
+    document.querySelector('#post-title').innerHTML = post['title'];
+  });
+
+</script>
