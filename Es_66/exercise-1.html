@@ -1,0 +1,29 @@
+<html>
+  <body>
+    <div id="container">
+      <ul class="todo-list"></ul>
+    </div>
+  </body>
+</html>
+
+<script>
+  // code here
+  window.onload = async function() {
+
+    //get list and append it to todo-list
+    let url = 'https://jsonplaceholder.typicode.com/todos';
+    let response = await fetch(url);
+    let list = await response.json();
+    
+    let ulElem = document.querySelector('.todo-list');
+
+    for(elem of list){
+      let liElem = document.createElement('li');
+      liElem.innerHTML = elem['title'];
+
+      ulElem.appendChild(liElem);
+    }
+  }
+
+
+</script>

@@ -1,0 +1,26 @@
+<html>
+  <body>
+    <div id="container" style="display: flex; align-items: center;"></div>
+  </body>
+</html>
+
+<script>
+  // code here
+  window.onload = async function() {
+
+    let url = 'https://jsonplaceholder.typicode.com/todos/4';
+    let response = await fetch(url);
+    let todo = await response.json();
+
+    let h2Elem = document.createElement('h2');
+    h2Elem.innerHTML = todo.title;
+
+    let checkbox = document.createElement('input');
+    checkbox.setAttribute('type', 'checkbox');
+    checkbox.setAttribute('checked', todo.completed);
+
+    let container = document.querySelector('#container');
+    container.append(h2Elem);
+    container.append(checkbox);
+  }
+</script>
